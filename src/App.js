@@ -1,23 +1,25 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { db } from "./firebase-config";
+import React from "react";
+import { collection, getDocs } from "firebase/firestore";
+import photo from "./Assets/Wheres-Waldo-Game.jpg";
 
 function App() {
+	let [users, setUsers] = React.useState([]);
+	let usersCollectionRef = collection(db, "users");
+	let test = photo;
+
+	React.useEffect(() => {
+		let getUsers = async () => {
+			let data = await getDocs(usersCollectionRef);
+			console.log(data);
+		};
+		getUsers();
+	}, []);
+
 	return (
-		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn Reactttt
-				</a>
-			</header>
+		<div>
+			<header>Sup</header>
+			<img src={test} alt="photo"></img>
 		</div>
 	);
 }
