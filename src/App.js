@@ -30,10 +30,13 @@ function App() {
 		setShowBox(true);
 	};
 
+	console.log(top, left);
+
 	return (
 		<div>
 			<Header />
 			<div className="photo-container" onClick={handlePhotoClick}>
+				<div className="waldo"></div>
 				{showBox ? <TargetingBox top={top} left={left} /> : ""}
 				<MainPhoto image={photo} top={top} left={left} />
 			</div>
