@@ -6,7 +6,7 @@ let MainPhoto = (props) => {
 
 	return (
 		<div>
-			{showBox ? <TargetingBox /> : ""}
+			{showBox ? <TargetingBox top={props.top} left={props.left} /> : ""}
 			<img
 				onClick={() => setShowBox(true)}
 				src={props.image}

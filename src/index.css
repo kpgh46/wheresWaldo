@@ -22,8 +22,7 @@ img{
   flex-direction: column;
   height:auto;
   width: 100px;
-  top: 5px;
-  left:5px;
+
   border: 1px solid red;
 }
 

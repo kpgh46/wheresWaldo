@@ -8,6 +8,8 @@ import MainPhoto from "./components/MainPhoto";
 
 function App() {
 	let [users, setUsers] = React.useState([]);
+	let [top, setTop] = React.useState(0);
+	let [left, setLeft] = React.useState(0);
 	let usersCollectionRef = collection(db, "users");
 
 	React.useEffect(() => {
@@ -19,19 +21,19 @@ function App() {
 	}, []);
 
 	let handlePhotoClick = (event) => {
-		let top = event.nativeEvent.offsetX;
-		let left = event.nativeEvent.offsetY;
+		let top = event.nativeEvent.offsetY;
+		let left = event.nativeEvent.offsetX;
 
-		let arr = [top, left];
-
-		return arr;
+		setTop(top);
+		setLeft(left);
 	};
 
+	console.log(top, left);
 	return (
 		<div>
 			<Header />
-			<div className="photo-container">
-				<MainPhoto image={photo} handlePhotoClick={handlePhotoClick} />
+			<div className="photo-container" onClick={handlePhotoClick}>
+				<MainPhoto image={photo} top={top} left={left} />
 			</div>
 		</div>
 	);
