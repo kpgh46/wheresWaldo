@@ -8,6 +8,7 @@ import MainPhoto from "./components/MainPhoto";
 
 function App() {
 	let [users, setUsers] = React.useState([]);
+	let [showBox, setShowBox] = React.useState(false);
 	let [top, setTop] = React.useState(0);
 	let [left, setLeft] = React.useState(0);
 	let usersCollectionRef = collection(db, "users");
@@ -26,13 +27,14 @@ function App() {
 
 		setTop(top);
 		setLeft(left);
+		setShowBox(true);
 	};
 
-	console.log(top, left);
 	return (
 		<div>
 			<Header />
 			<div className="photo-container" onClick={handlePhotoClick}>
+				{showBox ? <TargetingBox top={top} left={left} /> : ""}
 				<MainPhoto image={photo} top={top} left={left} />
 			</div>
 		</div>

@@ -31,5 +31,11 @@ img{
   width: auto;
   border: 1px solid;
   padding: 5px;
+  background-color: lightblue;
+  opacity: .8;
 
+}
+
+.target-option:hover{
+background-color: green;
 }
