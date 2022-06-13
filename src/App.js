@@ -4,11 +4,11 @@ import { collection, getDocs } from "firebase/firestore";
 import photo from "./assets/Wheres-Waldo-Game.jpg";
 import Header from "./components/Header";
 import TargetingBox from "./components/TargetingBox";
+import MainPhoto from "./components/MainPhoto";
 
 function App() {
 	let [users, setUsers] = React.useState([]);
 	let usersCollectionRef = collection(db, "users");
-	let image = photo;
 
 	React.useEffect(() => {
 		let getUsers = async () => {
@@ -18,25 +18,20 @@ function App() {
 		getUsers();
 	}, []);
 
-	// let handlePhotoClick = () => {
+	let handlePhotoClick = (event) => {
+		let top = event.nativeEvent.offsetX;
+		let left = event.nativeEvent.offsetY;
 
-	// };
+		let arr = [top, left];
+
+		return arr;
+	};
 
 	return (
 		<div>
 			<Header />
 			<div className="photo-container">
-				<img
-					// onClick={(event) =>
-					// 	console.log(
-					// 		event.nativeEvent.offsetX,
-					// 		event.nativeEvent.offsetY
-					// 	)
-					// }
-					src={image}
-					alt="photo"
-				></img>
-				<TargetingBox />
+				<MainPhoto image={photo} handlePhotoClick={handlePhotoClick} />
 			</div>
 		</div>
 	);
