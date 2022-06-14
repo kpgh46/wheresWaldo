@@ -21,7 +21,6 @@ function App() {
 	React.useEffect(() => {
 		let getUsers = async () => {
 			let data = await getDocs(usersCollectionRef);
-			console.log(data);
 		};
 		getUsers();
 	}, []);
@@ -49,15 +48,14 @@ function App() {
 		);
 	};
 
+	//removes display from targeting box when a selection is made
 	React.useEffect(() => {
 		setShowBox(false);
 	}, [characters]);
 
-	console.log(characters);
-
 	return (
 		<div>
-			<Header />
+			<Header characters={characters} />
 			<div className="photo-container" onClick={handlePhotoClick}>
 				<div className="waldo"></div>
 				<div className="wizard"></div>
