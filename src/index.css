@@ -5,13 +5,13 @@
 }
 
 img{
-  height: 700px;
-  width: 750px;
+  height: 800px;
+  width: 850px;
 }
 
 .photo-container{
-  height: 700px;
-  width: 750px;
+  height: 800px;
+  width: 850px;
   border: 2px solid red;
   position: relative;
 }
@@ -47,8 +47,29 @@ background-color: green;
   width: 20px;
   border: 2px solid green;
   /* background-color: green; */
-  top: 323px;
-  left: 385px;
+  top: 375px;
+  left: 438px;
+  z-index: 1;
+  position: absolute;
+}
+
+.wizard{
+  height: 54px;
+  width: 20px;
+  border: 2px solid green;
+  /* background-color: green; */
+  top: 371px;
+  left: 519px;
+  z-index: 1;
+  position: absolute;
+}
+.wally{
+  height: 54px;
+  width: 20px;
+  border: 2px solid green;
+  /* background-color: green; */
+  top: 371px;
+  left: 197px;
   z-index: 1;
   position: absolute;
 }

@@ -12,7 +12,7 @@ function App() {
 	let [characters, setCharacters] = React.useState([
 		{ name: "waldo", found: false },
 		{ name: "wizard", found: false },
-		{ name: "something", found: false },
+		{ name: "wally", found: false },
 	]);
 	let [top, setTop] = React.useState(0);
 	let [left, setLeft] = React.useState(0);
@@ -26,6 +26,7 @@ function App() {
 		getUsers();
 	}, []);
 
+	//shows targeting box to x/y value
 	let handlePhotoClick = (event) => {
 		let top = event.nativeEvent.offsetY;
 		let left = event.nativeEvent.offsetX;
@@ -35,6 +36,7 @@ function App() {
 		setShowBox(true);
 	};
 
+	//selects character and updates 'found' property on characters Object
 	let handleTargetBoxClick = (event) => {
 		let id = event.target.id;
 
@@ -47,6 +49,10 @@ function App() {
 		);
 	};
 
+	React.useEffect(() => {
+		setShowBox(false);
+	}, [characters]);
+
 	console.log(characters);
 
 	return (
@@ -54,6 +60,8 @@ function App() {
 			<Header />
 			<div className="photo-container" onClick={handlePhotoClick}>
 				<div className="waldo"></div>
+				<div className="wizard"></div>
+				<div className="wally"></div>
 				{showBox ? (
 					<TargetingBox
 						top={top}
