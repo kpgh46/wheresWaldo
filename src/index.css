@@ -5,13 +5,13 @@
 }
 
 img{
-  height: 500px;
-  width: 500px;
+  height: 700px;
+  width: 750px;
 }
 
 .photo-container{
-  height: 500px;
-  width: 500px;
+  height: 700px;
+  width: 750px;
   border: 2px solid red;
   position: relative;
 }
@@ -23,6 +23,9 @@ img{
   height:auto;
   width: 100px;
   border: 1px solid red;
+}
+.no-targeting-box{
+ display: none;
 }
 
 .target-option{
@@ -44,8 +47,8 @@ background-color: green;
   width: 20px;
   border: 2px solid green;
   /* background-color: green; */
-  top: 90px;
-  left: 75px;
+  top: 323px;
+  left: 385px;
   z-index: 1;
   position: absolute;
 }
