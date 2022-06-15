@@ -11,6 +11,7 @@
   border: 1px solid;
 }
 .header-right{
+  display: flex;
   width: 50%;
   border: 1px solid;
 }

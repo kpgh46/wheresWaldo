@@ -12,7 +12,7 @@ let Game = (props) => {
 
 	return (
 		<div>
-			<Header characters={character} />
+			<Header characters={gameboard} />
 			<img src={Object.values(gameboard.image)} alt="gameboard"></img>
 			<div>This is level {gameboard.level}</div>
 		</div>
