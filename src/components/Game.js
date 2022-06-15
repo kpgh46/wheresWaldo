@@ -1,10 +1,17 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+import data from "../data";
 
-let Game = (props) => {
+let Game = () => {
+	let { level } = useParams();
+
+	let gameboard = data.find((board) => {
+		return board.id === parseInt(level);
+	});
+
 	return (
 		<div>
-			<img src={props.board} alt="gameboard"></img>
-			<div>This is level {props.key}</div>
+			<div>This is level {gameboard.level}</div>
 		</div>
 	);
 };

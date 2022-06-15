@@ -3,9 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Game from "./components/Game";
-import L1 from "./assets/gameboards/level-1.jpg";
-import L2 from "./assets/gameboards/level-2.jpg";
-import L3 from "./assets/gameboards/level-3.jpg";
+import data from "./data";
 
 let RouteSwitch = () => {
 	let [characters, setCharacters] = React.useState([
@@ -13,12 +11,18 @@ let RouteSwitch = () => {
 		{ name: "wizard", found: false },
 		{ name: "wally", found: false },
 	]);
-	let gameboards = [L1, L2, L3];
+
 	return (
 		<div>
 			<BrowserRouter>
 				<Header characters={characters} />
-				<Home gameboards={gameboards} />
+				<Routes>
+					<Route
+						path="/"
+						element={<Home gameboards={data} />}
+					></Route>
+					<Route path="/gameboard/:level" element={<Game />}></Route>
+				</Routes>
 			</BrowserRouter>
 		</div>
 	);
