@@ -72,7 +72,7 @@ background-color: green;
   /* background-color: green; */
   top: 375px;
   left: 464px;
-  z-index: 1;
+  z-index: 0;
   position: absolute;
 }
 

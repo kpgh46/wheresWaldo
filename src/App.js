@@ -33,6 +33,8 @@ function App() {
 		setTop(top);
 		setLeft(left);
 		setShowBox(true);
+
+		console.log(event.target);
 	};
 
 	//selects character and updates 'found' property on characters Object
@@ -57,7 +59,7 @@ function App() {
 		<div>
 			<Header characters={characters} />
 			<div className="photo-container" onClick={handlePhotoClick}>
-				<div className="waldo"></div>
+				<div onClick={handlePhotoClick} className="waldo"></div>
 				<div className="wizard"></div>
 				<div className="wally"></div>
 				{showBox ? (
