@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 let Home = (props) => {
-	console.log(props);
 	let boards = props.gameboards.map((board) => {
 		return (
 			<div>

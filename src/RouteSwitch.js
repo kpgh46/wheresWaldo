@@ -6,22 +6,20 @@ import Game from "./components/Game";
 import data from "./data";
 
 let RouteSwitch = () => {
-	let [characters, setCharacters] = React.useState([
-		{ name: "waldo", found: false },
-		{ name: "wizard", found: false },
-		{ name: "wally", found: false },
-	]);
+	let [characters, setCharacters] = React.useState(data);
 
 	return (
 		<div>
 			<BrowserRouter>
-				<Header characters={characters} />
 				<Routes>
 					<Route
 						path="/"
 						element={<Home gameboards={data} />}
 					></Route>
-					<Route path="/gameboard/:level" element={<Game />}></Route>
+					<Route
+						path="/gameboard/:level"
+						element={<Game characters={characters} />}
+					></Route>
 				</Routes>
 			</BrowserRouter>
 		</div>
