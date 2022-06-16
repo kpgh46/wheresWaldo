@@ -2,18 +2,34 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 let Home = (props) => {
+	console.log(props);
 	let boards = props.gameboards.map((board) => {
 		return (
-			<div>
+			<div className="home__board-container">
 				<Link to={`gameboard/${board.id}`}>
-					<img src={Object.values(board.image)} alt="board"></img>
+					<img
+						className="home__board-images"
+						src={Object.values(board.image)}
+						alt="board"
+					></img>
 				</Link>
-				<div>This is a gameboard</div>
+				<div className="home__board-description">
+					<div>{board.level}</div>
+				</div>
 			</div>
 		);
 	});
 
-	return <div>{boards}</div>;
+	return (
+		<div>
+			<div className="home__container">
+				<div className="home__banner">
+					<div>Where's Waldo?</div>
+				</div>
+				<div className="home__boards">{boards}</div>
+			</div>
+		</div>
+	);
 };
 
 export default Home;
