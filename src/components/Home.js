@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/characters/logo.png";
 
 let Home = (props) => {
 	console.log(props);
@@ -22,9 +23,14 @@ let Home = (props) => {
 
 	return (
 		<div>
-			<div className="home__container">
+			<div className="page__container">
 				<div className="home__banner">
-					<div>Where's Waldo?</div>
+					<div className="header-text">Where's Waldo?</div>
+					<img
+						className="home__logo"
+						src={logo}
+						alt="waldo logo"
+					></img>
 				</div>
 				<div className="home__boards">{boards}</div>
 			</div>

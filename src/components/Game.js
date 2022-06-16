@@ -12,13 +12,9 @@ let Game = (props) => {
 	});
 
 	return (
-		<div>
+		<div className="page__container">
 			<Header characters={gameboard} />
-			<Link to="/">
-				<button>Home</button>
-			</Link>
 			<img src={Object.values(gameboard.image)} alt="gameboard"></img>
-			<div>This is level {gameboard.level}</div>
 		</div>
 	);
 };
