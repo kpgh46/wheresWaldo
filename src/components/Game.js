@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 let Game = (props) => {
 	let { level } = useParams();
@@ -13,6 +14,9 @@ let Game = (props) => {
 	return (
 		<div>
 			<Header characters={gameboard} />
+			<Link to="/">
+				<button>Home</button>
+			</Link>
 			<img src={Object.values(gameboard.image)} alt="gameboard"></img>
 			<div>This is level {gameboard.level}</div>
 		</div>

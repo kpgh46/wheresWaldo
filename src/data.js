@@ -12,33 +12,32 @@ export default [
 		id: 1,
 		level: "Level 1",
 		difficulty: "easy",
-		found: false,
 		image: { Level1 },
 		characters: [
-			{ name: "waldo", image: { Waldo } },
-			{ name: "wally", image: { Wally } },
-			{ name: "wizard", image: { Wizard } },
+			{ name: "waldo", image: { Waldo }, found: true },
+			{ name: "wally", image: { Wally }, found: false },
+			{ name: "wizard", image: { Wizard }, found: false },
 		],
 	},
 	{
 		id: 2,
 		level: "Level 2",
-		found: false,
+
 		difficulty: "medium",
 		image: { Level2 },
-		characters: [{ name: "waldo", image: { Waldo } }],
+		characters: [{ name: "waldo", image: { Waldo }, found: false }],
 	},
 	{
 		id: 3,
 		level: "Level 3",
 		difficulty: "hard",
-		found: false,
+
 		image: { Level3 },
 		characters: [
-			{ name: "waldo", image: { Waldo } },
-			{ name: "wally", image: { Wally } },
-			{ name: "wizard", image: { Wizard } },
-			{ name: "wenda", image: { Wenda } },
+			{ name: "waldo", image: { Waldo }, found: false },
+			{ name: "wally", image: { Wally }, found: true },
+			{ name: "wizard", image: { Wizard }, found: false },
+			{ name: "wenda", image: { Wenda }, found: false },
 		],
 	},
 ];
