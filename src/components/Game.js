@@ -7,6 +7,7 @@ let Game = (props) => {
 	console.log(props);
 	let { level } = useParams();
 	let character = props.data;
+	let [test, setTest] = React.useState("not Clicked");
 
 	let gameboard = character.find((board) => {
 		return board.id === parseInt(level);
@@ -37,7 +38,8 @@ let Game = (props) => {
 						shape="rect"
 						coords="0, 0, 82, 162"
 						alt="test"
-						href="espn.com"
+						onClick={() => setTest("changed State!!!")}
+						// href="#"
 					></area>
 				</map>
 			</div>
