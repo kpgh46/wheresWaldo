@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 let Game = (props) => {
-	console.log(props);
 	let { level } = useParams();
 	let character = props.data;
 	let [test, setTest] = React.useState("not Clicked");
@@ -16,7 +15,8 @@ let Game = (props) => {
 	let testClick = (e) => {
 		let x = e.nativeEvent.offsetX;
 		let y = e.nativeEvent.offsetY;
-		let z = e.target.getBoundingClientRect();
+		let z = e.target.getBoundingClientRect().width; //initialize state onload and resize
+		//state will be x (from data) / z. Same with y.
 
 		console.log(x, y);
 		console.log(z);

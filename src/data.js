@@ -16,7 +16,7 @@ export default [
 		difficulty: "easy",
 		image: { Level1 },
 		characters: [
-			{ name: "waldo", image: { Waldo }, found: true },
+			{ name: "waldo", x: "51", y: "47", image: { Waldo }, found: true },
 			{ name: "wally", image: { Wally }, found: false },
 			{ name: "wizard", image: { Wizard }, found: false },
 		],

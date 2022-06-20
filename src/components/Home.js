@@ -11,6 +11,7 @@ let Home = (props) => {
 						className="home__board-images"
 						src={Object.values(board.image)}
 						alt="board"
+						id={board.id}
 					></img>
 				</Link>
 				<div className="home__board-description">
