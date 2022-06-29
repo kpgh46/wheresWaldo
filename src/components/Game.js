@@ -21,13 +21,13 @@ let Game = (props) => {
 	}
 	console.log(gameboard);
 
-	let testFunction = () => {
+	let testFunction = (char) => {
 		let coords = [];
 
-		let xOne = 1000 * (gameboard.characters[0].x / 100);
-		let xTwo = 1000 * (gameboard.characters[0].x / 100) + 40;
-		let yOne = 1000 * (gameboard.characters[0].y / 100);
-		let yTwo = 1000 * (gameboard.characters[0].y / 100) + 70;
+		let xOne = 1000 * (char.x / 100);
+		let xTwo = 1000 * (char.x / 100) + 40;
+		let yOne = 1000 * (char.y / 100);
+		let yTwo = 1000 * (char.y / 100) + 70;
 
 		coords.push(xOne, yOne, xTwo, yTwo);
 		coords = coords.toString();
@@ -35,8 +35,18 @@ let Game = (props) => {
 		return coords;
 	};
 
+	let mapCharacters = gameboard.characters.map((character) => {
+		return (
+			<area
+				shape="rect"
+				coords={testFunction(character)}
+				alt="test"
+				onClick={() => console.log("yo")}
+			></area>
+		);
+	});
+
 	console.log(test);
-	// testFunction();
 
 	return (
 		<div className="page__container">
@@ -50,14 +60,7 @@ let Game = (props) => {
 					alt="gameboard"
 					useMap="#gameboard"
 				></img>
-				<map name="gameboard">
-					<area
-						shape="rect"
-						coords={testFunction()}
-						alt="test"
-						onClick={() => setTest("changed State!!!")}
-					></area>
-				</map>
+				<map name="gameboard">{mapCharacters}</map>
 			</div>
 		</div>
 	);
