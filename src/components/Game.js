@@ -5,12 +5,11 @@ import { useParams } from "react-router-dom";
 
 let Game = (props) => {
 	let { level } = useParams();
-	let character = props.data;
 	let [test, setTest] = React.useState("not Clicked");
-	let gameboard = character.find((board) => {
+	let gameboard = props.data.find((board) => {
 		return board.id === parseInt(level);
 	});
-	// let [currentCharacters, setCurrentCharacters] = React.
+	let [currentCharacters, setCurrentCharacters] = React.useState(gameboard);
 
 	function testClick(e) {
 		let x = e.nativeEvent.offsetX;
@@ -18,9 +17,20 @@ let Game = (props) => {
 		let z = e.target.getBoundingClientRect().width;
 
 		console.log(x, y);
-		// console.log(z);
 	}
-	console.log(gameboard);
+	console.log(currentCharacters);
+
+	let handleTargetBoxClick = (event) => {
+		let id = event.target.id;
+
+		setCurrentCharacters((previousCharacters) =>
+			previousCharacters.characters.map((character) => {
+				return id === character.name
+					? { ...character, found: true }
+					: character;
+			})
+		);
+	};
 
 	let testFunction = (char) => {
 		let coords = [];
@@ -42,7 +52,7 @@ let Game = (props) => {
 				shape="rect"
 				coords={testFunction(character)}
 				alt="test"
-				onClick={(e) => setTest(e.target.id)}
+				onClick={(e) => handleTargetBoxClick(e)}
 				id={character.name}
 			></area>
 		);
