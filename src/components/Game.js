@@ -1,15 +1,16 @@
 import React, { useRef, useLayoutEffect } from "react";
 import Header from "./Header";
+import TargetingBox from "./TargetingBox";
 import { useParams } from "react-router-dom";
 
 let Game = (props) => {
 	let { level } = useParams();
 	let character = props.data;
 	let [test, setTest] = React.useState("not Clicked");
-
 	let gameboard = character.find((board) => {
 		return board.id === parseInt(level);
 	});
+	// let [currentCharacters, setCurrentCharacters] = React.
 
 	function testClick(e) {
 		let x = e.nativeEvent.offsetX;
@@ -41,7 +42,8 @@ let Game = (props) => {
 				shape="rect"
 				coords={testFunction(character)}
 				alt="test"
-				onClick={() => console.log("yo")}
+				onClick={(e) => setTest(e.target.id)}
+				id={character.name}
 			></area>
 		);
 	});

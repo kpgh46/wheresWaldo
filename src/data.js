@@ -27,7 +27,9 @@ export default [
 
 		difficulty: "medium",
 		image: { Level2 },
-		characters: [{ name: "waldo", image: { Waldo }, found: false }],
+		characters: [
+			{ name: "waldo", x: 84, y: 20, image: { Waldo }, found: false },
+		],
 	},
 	{
 		id: 3,
