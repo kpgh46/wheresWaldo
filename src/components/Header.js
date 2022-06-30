@@ -4,9 +4,16 @@ import stamp from "../assets/characters/stampv2.png";
 import { Link } from "react-router-dom";
 
 let Header = (props) => {
-	let { characters } = props.characters;
+	// let { characters } = props.characters;
+	let [boardCharacters, setBoardCharacters] = React.useState(
+		props.characters.characters
+	);
 
-	let images = characters.map((character) => {
+	React.useEffect(() => {
+		setBoardCharacters(props.characters.characters);
+	}, [props]);
+
+	let images = boardCharacters.map((character) => {
 		return (
 			<div>
 				<img

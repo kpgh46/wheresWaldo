@@ -9,28 +9,14 @@ let Game = (props) => {
 	let gameboard = props.data.find((board) => {
 		return board.id === parseInt(level);
 	});
-	let [currentCharacters, setCurrentCharacters] = React.useState(gameboard);
 
-	function testClick(e) {
-		let x = e.nativeEvent.offsetX;
-		let y = e.nativeEvent.offsetY;
-		let z = e.target.getBoundingClientRect().width;
+	// function testClick(e) {
+	// 	let x = e.nativeEvent.offsetX;
+	// 	let y = e.nativeEvent.offsetY;
+	// 	let z = e.target.getBoundingClientRect().width;
 
-		console.log(x, y);
-	}
-	console.log(currentCharacters);
-
-	let handleTargetBoxClick = (event) => {
-		let id = event.target.id;
-
-		setCurrentCharacters((previousCharacters) =>
-			previousCharacters.characters.map((character) => {
-				return id === character.name
-					? { ...character, found: true }
-					: character;
-			})
-		);
-	};
+	// 	console.log(x, y);
+	// }
 
 	let testFunction = (char) => {
 		let coords = [];
@@ -42,7 +28,6 @@ let Game = (props) => {
 
 		coords.push(xOne, yOne, xTwo, yTwo);
 		coords = coords.toString();
-		// console.log(coords);
 		return coords;
 	};
 
@@ -52,22 +37,22 @@ let Game = (props) => {
 				shape="rect"
 				coords={testFunction(character)}
 				alt="test"
-				onClick={(e) => handleTargetBoxClick(e)}
-				id={character.name}
+				onClick={props.handleTargetBoxClick}
+				id={`${character.name}${level}`}
 			></area>
 		);
 	});
 
-	console.log(test);
+	// console.log(test);
 
 	return (
 		<div className="page__container">
-			<Header characters={gameboard} />
+			{/* <Header characters={currentCharacters} /> */}
 			<div className="game__image-container">
 				<img
 					// onClick={testFunction}
 					className="game__image"
-					onClick={testClick}
+					// onClick={testClick}
 					src={Object.values(gameboard.image)}
 					alt="gameboard"
 					useMap="#gameboard"

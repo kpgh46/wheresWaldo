@@ -11,7 +11,7 @@ import Wenda from "./assets/characters/wenda.jpg";
 // eslint-disable-next-line import/no-anonymous-default-export
 export default [
 	{
-		id: 1,
+		id: 0,
 		level: "Level 1",
 		difficulty: "easy",
 		image: { Level1 },
@@ -22,7 +22,7 @@ export default [
 		],
 	},
 	{
-		id: 2,
+		id: 1,
 		level: "Level 2",
 
 		difficulty: "medium",
@@ -32,7 +32,7 @@ export default [
 		],
 	},
 	{
-		id: 3,
+		id: 2,
 		level: "Level 3",
 		difficulty: "hard",
 
@@ -45,7 +45,7 @@ export default [
 		],
 	},
 	{
-		id: 4,
+		id: 3,
 		level: "Level 4",
 		difficulty: "hard",
 
