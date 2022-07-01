@@ -5,22 +5,22 @@ import { Link } from "react-router-dom";
 
 let Header = (props) => {
 	let index = props.index;
-	let [headerData, setHeaderData] = React.useState(props.characters);
-	// console.log(headerData, index, typeof index);
+	let headerData = props.characters;
+	console.log(headerData);
 
-	// let images = headerData[index].characters.map((character) => {
-	// 	return (
-	// 		<div>
-	// 			<img
-	// 				className={
-	// 					character.found ? "score-photo found" : "score-photo"
-	// 				}
-	// 				src={Object.values(character.image)}
-	// 				alt="photo"
-	// 			></img>
-	// 		</div>
-	// 	);
-	// });
+	let images = headerData[index].characters.map((character) => {
+		return (
+			<div>
+				<img
+					className={
+						character.found ? "score-photo found" : "score-photo"
+					}
+					src={Object.values(character.image)}
+					alt="photo"
+				></img>
+			</div>
+		);
+	});
 
 	return (
 		<div className="header">
@@ -32,7 +32,7 @@ let Header = (props) => {
 				></img>
 				<h1 className="header-text">Where's Waldo?</h1>
 			</div>
-			{/* <div className="header-right">{images}</div> */}
+			<div className="header-right">{images}</div>
 			<Link to="/">
 				<button className="header__button">Home</button>
 			</Link>
