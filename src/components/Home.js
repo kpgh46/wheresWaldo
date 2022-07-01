@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/characters/logo.png";
 
 let Home = (props) => {
+	console.log(props.data);
 	let boards = props.gameboards.map((board) => {
 		return (
 			<div className="home__board-container">
