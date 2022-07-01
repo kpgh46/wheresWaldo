@@ -5,10 +5,8 @@ import { useParams } from "react-router-dom";
 
 let Game = (props) => {
 	let { level } = useParams();
+	let [gameData, setGameData] = React.useState(props.data);
 	let [test, setTest] = React.useState("not Clicked");
-	let gameboard = props.data.find((board) => {
-		return board.id === parseInt(level);
-	});
 
 	// function testClick(e) {
 	// 	let x = e.nativeEvent.offsetX;
@@ -31,29 +29,31 @@ let Game = (props) => {
 		return coords;
 	};
 
-	let mapCharacters = gameboard.characters.map((character) => {
-		return (
-			<area
-				shape="rect"
-				coords={testFunction(character)}
-				alt="test"
-				onClick={props.handleTargetBoxClick}
-				id={`${character.name}${level}`}
-			></area>
-		);
-	});
+	let mapCharacters = gameData[parseInt(level)].characters.map(
+		(character) => {
+			return (
+				<area
+					shape="rect"
+					coords={testFunction(character)}
+					alt="test"
+					onClick={props.handleTargetBoxClick}
+					id={`${character.name}${level}`}
+				></area>
+			);
+		}
+	);
 
 	// console.log(test);
 
 	return (
 		<div className="page__container">
-			{/* <Header characters={currentCharacters} /> */}
+			<Header characters={gameData} index={parseInt(level)} />
 			<div className="game__image-container">
 				<img
 					// onClick={testFunction}
 					className="game__image"
 					// onClick={testClick}
-					src={Object.values(gameboard.image)}
+					src={Object.values(gameData[parseInt(level)].image)}
 					alt="gameboard"
 					useMap="#gameboard"
 				></img>
