@@ -33,7 +33,7 @@ let RouteSwitch = () => {
 		};
 
 		//get entire current gameData, then update it with new Board array
-		let currentData = gameData;
+		let currentData = [...gameData];
 		currentData[parseInt(index)] = currentBoard;
 
 		//update State with new entire Object array

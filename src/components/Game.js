@@ -8,6 +8,10 @@ let Game = (props) => {
 	let [gameData, setGameData] = React.useState(props.data);
 	let [test, setTest] = React.useState("not Clicked");
 
+	React.useEffect(() => {
+		setGameData(props.data);
+	}, [props.data]);
+
 	// function testClick(e) {
 	// 	let x = e.nativeEvent.offsetX;
 	// 	let y = e.nativeEvent.offsetY;
