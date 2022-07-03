@@ -18,12 +18,12 @@ function App() {
 	let [left, setLeft] = React.useState(0);
 	let usersCollectionRef = collection(db, "users");
 
-	React.useEffect(() => {
-		let getUsers = async () => {
-			let data = await getDocs(usersCollectionRef);
-		};
-		getUsers();
-	}, []);
+	// React.useEffect(() => {
+	// 	let getUsers = async () => {
+	// 		let data = await getDocs(usersCollectionRef);
+	// 	};
+	// 	getUsers();
+	// }, []);
 
 	//shows targeting box to x/y value
 	let handlePhotoClick = (event) => {

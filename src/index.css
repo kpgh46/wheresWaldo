@@ -57,6 +57,12 @@ img{
   border: 2px solid red;
   position: relative;
   
+  
+}
+
+.found-message{
+  color:red;
+  border: 2px solid green;
 }
 
 .page__container{
@@ -155,6 +161,7 @@ background-color: green;
   width: 1000px;
   height: 800px;
   overflow: hidden;
+  margin-top: 20px;
   /* position: absolute; */
 }
 

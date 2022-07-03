@@ -5,14 +5,7 @@ import { Link } from "react-router-dom";
 
 let Header = (props) => {
 	let index = props.index;
-	// let [headerData, setHeaderData] = React.useState(props.characters);
 
-	// React.useEffect(() => {
-	// 	setHeaderData(props.characters);
-	// 	console.log("headerData", headerData); // this updates in console correctly
-	// }, [props.characters]);
-
-	//images do not see to update
 	let images = props.characters[index].characters.map((character) => {
 		return (
 			<div>

@@ -6,11 +6,22 @@ import { useParams } from "react-router-dom";
 let Game = (props) => {
 	let { level } = useParams();
 	let [gameData, setGameData] = React.useState(props.data);
+	let [found, setFound] = React.useState(props.found);
 	let [test, setTest] = React.useState("not Clicked");
 
 	React.useEffect(() => {
 		setGameData(props.data);
 	}, [props.data]);
+
+	React.useEffect(() => {
+		setFound(props.found);
+	}, [props.found]);
+
+	React.useEffect(() => {
+		setTimeout(() => {
+			setFound(false);
+		}, 2000);
+	}, [props.found]);
 
 	// function testClick(e) {
 	// 	let x = e.nativeEvent.offsetX;
@@ -51,8 +62,16 @@ let Game = (props) => {
 
 	return (
 		<div className="page__container">
-			<Header characters={gameData} index={parseInt(level)} />
+			<Header
+				characters={gameData}
+				index={parseInt(level)}
+				found={found}
+			/>
+
 			<div className="game__image-container">
+				{found && (
+					<div className="found-message">You found {found.name}!</div>
+				)}
 				<img
 					// onClick={testFunction}
 					className="game__image"

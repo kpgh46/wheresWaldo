@@ -7,11 +7,17 @@ import Header from "./components/Header";
 
 let RouteSwitch = () => {
 	let [gameData, setGameData] = React.useState(data);
+	let [showBox, setShowBox] = React.useState(true);
+	let [top, setTop] = React.useState(0);
+	let [left, setLeft] = React.useState(0);
+	let [found, setFound] = React.useState("");
 
 	let handleTargetBoxClick = (event) => {
 		let el = event.target.id;
 		let id = el.slice(0, -1); //name of character
 		let index = el.slice(-1); //id of data object
+
+		setFound({ found: true, name: id });
 
 		//map over correct Object array index, switch Found, return characterArray
 		let currentCharacter = gameData[parseInt(index)].characters.map(
@@ -54,6 +60,7 @@ let RouteSwitch = () => {
 							<Game
 								data={gameData}
 								handleTargetBoxClick={handleTargetBoxClick}
+								found={found}
 							/>
 						}
 					></Route>
