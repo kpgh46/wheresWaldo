@@ -7,10 +7,8 @@ let Game = (props) => {
 	let { level } = useParams();
 	let [gameData, setGameData] = React.useState(props.data);
 	let [found, setFound] = React.useState(props.found);
-	let [charactersFound, setCharactersFound] = React.useState([]);
+	let [foundAllCharacters, setFoundAllCharacters] = React.useState(false);
 	let [test, setTest] = React.useState("not Clicked");
-
-	console.log(charactersFound);
 
 	React.useEffect(() => {
 		setGameData(props.data);
@@ -28,8 +26,10 @@ let Game = (props) => {
 
 	React.useEffect(() => {
 		let characters = [...props.data[level].characters];
-		let foundCharacters = characters.filter((character) => character.found);
-		setCharactersFound(foundCharacters);
+		let foundCharacters = characters.every((character) => character.found);
+		if (foundCharacters) {
+			setFoundAllCharacters(true);
+		}
 	}, [props.data]);
 
 	function testClick(e) {
@@ -52,6 +52,8 @@ let Game = (props) => {
 		coords = coords.toString();
 		return coords;
 	};
+
+	let imageClass = foundAllCharacters ? "game__image darken" : "game__image";
 
 	let mapCharacters = gameData[parseInt(level)].characters.map(
 		(character) => {
@@ -80,7 +82,7 @@ let Game = (props) => {
 				<div className="found-message">You found {found.name}!</div>
 			)}
 
-			{charactersFound.length === props.data[level].characters.length && (
+			{foundAllCharacters && (
 				<div className="found-message">
 					You found all the characters!
 				</div>
@@ -89,7 +91,7 @@ let Game = (props) => {
 			<div className="game__image-container">
 				<img
 					// onClick={testFunction}
-					className="game__image"
+					className={imageClass}
 					onClick={testClick}
 					src={Object.values(gameData[parseInt(level)].image)}
 					alt="gameboard"

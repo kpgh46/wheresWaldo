@@ -177,6 +177,7 @@ background-color: green;
   overflow: hidden;
   margin-top: 20px;
   position: relative;
+  
 }
 
 .game__image{
@@ -184,4 +185,9 @@ background-color: green;
   height: auto;
   display: block;
   /* position: absolute; */
+}
+
+.darken{
+  
+  filter: brightness(70%);
 }
