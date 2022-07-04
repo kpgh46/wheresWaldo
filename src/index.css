@@ -42,7 +42,7 @@
 .score-photo{
   height: 60px;
   width: 60px;
-  border: .5px solid;
+  /* border: .5px solid; */
 }
 
 img{
