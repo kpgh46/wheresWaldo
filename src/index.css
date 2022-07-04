@@ -28,8 +28,9 @@
 
 .header-right{
   display: flex;
-  width: 50%;
+  width: 56%;
   /* border: 1px solid; */
+  
 }
 
 
@@ -61,8 +62,21 @@ img{
 }
 
 .found-message{
-  color:red;
-  border: 2px solid green;
+  color:#3B82F6;
+  
+  height: 21px;
+  width: 180px;
+  font-size: large;
+  font-weight: bolder;
+  border: 1px solid #3B82F6;
+  border-radius: 5px;
+  position: absolute;
+  top: 16.25%;
+  z-index: 1;
+  text-align: center;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
 }
 
 .page__container{
@@ -162,7 +176,7 @@ background-color: green;
   height: 800px;
   overflow: hidden;
   margin-top: 20px;
-  /* position: absolute; */
+  position: relative;
 }
 
 .game__image{

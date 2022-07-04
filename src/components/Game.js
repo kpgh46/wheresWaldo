@@ -20,7 +20,7 @@ let Game = (props) => {
 	React.useEffect(() => {
 		setTimeout(() => {
 			setFound(false);
-		}, 2000);
+		}, 2500);
 	}, [props.found]);
 
 	// function testClick(e) {
@@ -67,11 +67,11 @@ let Game = (props) => {
 				index={parseInt(level)}
 				found={found}
 			/>
+			{found && (
+				<div className="found-message">You found {found.name}!</div>
+			)}
 
 			<div className="game__image-container">
-				{found && (
-					<div className="found-message">You found {found.name}!</div>
-				)}
 				<img
 					// onClick={testFunction}
 					className="game__image"
