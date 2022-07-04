@@ -38,10 +38,10 @@ export default [
 
 		image: { Level3 },
 		characters: [
-			{ name: "waldo", image: { Waldo }, found: false },
-			{ name: "wally", image: { Wally }, found: true },
-			{ name: "wizard", image: { Wizard }, found: false },
-			{ name: "wenda", image: { Wenda }, found: false },
+			{ name: "waldo", x: 96, y: 2, image: { Waldo }, found: false },
+			{ name: "wally", x: 91, y: 36, image: { Wally }, found: false },
+			{ name: "wizard", x: 28, y: 24, image: { Wizard }, found: false },
+			{ name: "wenda", x: 27, y: 42, image: { Wenda }, found: false },
 		],
 	},
 	{
@@ -51,8 +51,8 @@ export default [
 
 		image: { Level4 },
 		characters: [
-			{ name: "waldo", image: { Waldo }, found: false },
-			{ name: "wally", image: { Wally }, found: true },
+			{ name: "waldo", x: 79, y: 3, image: { Waldo }, found: false },
+			{ name: "wally", x: 3, y: 43, image: { Wally }, found: false },
 		],
 	},
 ];

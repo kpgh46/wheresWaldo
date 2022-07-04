@@ -23,13 +23,13 @@ let Game = (props) => {
 		}, 2500);
 	}, [props.found]);
 
-	// function testClick(e) {
-	// 	let x = e.nativeEvent.offsetX;
-	// 	let y = e.nativeEvent.offsetY;
-	// 	let z = e.target.getBoundingClientRect().width;
+	function testClick(e) {
+		let x = e.nativeEvent.offsetX;
+		let y = e.nativeEvent.offsetY;
+		let z = e.target.getBoundingClientRect().width;
 
-	// 	console.log(x, y);
-	// }
+		console.log(x, y);
+	}
 
 	let testFunction = (char) => {
 		let coords = [];
@@ -75,7 +75,7 @@ let Game = (props) => {
 				<img
 					// onClick={testFunction}
 					className="game__image"
-					// onClick={testClick}
+					onClick={testClick}
 					src={Object.values(gameData[parseInt(level)].image)}
 					alt="gameboard"
 					useMap="#gameboard"
