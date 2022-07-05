@@ -10,7 +10,7 @@ let Leaderboard = (props) => {
 		setCurrentLevel(el);
 	};
 
-	console.log(currentLevel);
+	console.log(data, "leaderboard");
 
 	return (
 		<div className="page__container">

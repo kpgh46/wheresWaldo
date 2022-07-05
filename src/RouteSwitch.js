@@ -61,14 +61,14 @@ let RouteSwitch = () => {
 		let level = parseInt(event.target.id);
 		let time = parseInt(event.target.dataset.id);
 
-		let newScore = { level: level, name: name, time: time };
+		let newScore = { level: level + 1, name: name, time: time };
 
 		setLeaderboard((previousData) => {
 			return [...previousData, newScore];
 		});
 	};
 
-	console.log(leaderboard);
+	console.log(leaderboard, "route");
 	return (
 		<div>
 			<BrowserRouter>
