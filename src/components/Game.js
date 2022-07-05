@@ -8,10 +8,11 @@ let Game = (props) => {
 	let [gameData, setGameData] = React.useState(props.data);
 	let [found, setFound] = React.useState(props.found);
 	let [foundAllCharacters, setFoundAllCharacters] = React.useState(false);
-	let [startGame, setStartGame] = React.useState(false);
+	let [startGame, setStartGame] = React.useState(true);
 	let [playerName, setPlayerName] = React.useState();
-	let [timer, setTime] = React.useState(0);
-	let [result, setResult] = React.useState(0);
+	let [timer, setTimer] = React.useState(0);
+	let timerRef = React.useRef(timer);
+	timerRef.current = timer;
 
 	React.useEffect(() => {
 		setGameData(props.data);
@@ -28,26 +29,23 @@ let Game = (props) => {
 	}, [props.found]);
 
 	React.useEffect(() => {
-		if (!foundAllCharacters) {
-			setInterval(() => {
-				setTime(timer + 1);
+		let interval;
+		if (startGame) {
+			interval = setInterval(() => {
+				setTimer((prevTime) => prevTime + 1);
 			}, 1000);
-		} else {
-			return () => clearInterval();
+		} else if (!startGame) {
+			clearInterval(interval);
 		}
-	}, [timer]);
-
-	// React.useEffect(() => {
-	// 	if (foundAllCharacters) {
-	// 		setTime(timer);
-	// 	}
-	// }, [foundAllCharacters]);
+		return () => clearInterval(interval);
+	}, [startGame]);
 
 	React.useEffect(() => {
 		let characters = [...props.data[level].characters];
 		let foundCharacters = characters.every((character) => character.found);
 		if (foundCharacters) {
 			setFoundAllCharacters(true);
+			setStartGame(false);
 		}
 	}, [props.data]);
 
@@ -110,7 +108,8 @@ let Game = (props) => {
 			<div className="game__image-container">
 				{foundAllCharacters && (
 					<div className="game__found-all-message">
-						You found all the characters in {timer} seconds!
+						You found all the characters in{" "}
+						{foundAllCharacters && timer} seconds!
 					</div>
 				)}
 				<img
