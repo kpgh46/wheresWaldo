@@ -9,11 +9,13 @@ import Header from "./components/Header";
 let RouteSwitch = () => {
 	let [gameData, setGameData] = React.useState(data);
 	let [leaderboard, setLeaderboard] = React.useState([
-		{ level: 1, name: "Kevin", time: 3.4 },
-		{ level: 1, name: "Erin", time: 13.4 },
-		{ level: 2, name: "Annabelle", time: 5.0 },
-		{ level: 3, name: "Ava", time: 7.4 },
-		{ level: 3, name: "Grace", time: 10.9 },
+		{ level: 1, name: "Kevin", time: 3 },
+		{ level: 1, name: "Erin", time: 13 },
+		{ level: 2, name: "Annabelle", time: 5 },
+		{ level: 3, name: "Ava", time: 7 },
+		{ level: 3, name: "Grace", time: 10 },
+		{ level: 4, name: "Faven", time: 11 },
+		{ level: 4, name: "Layla", time: 12 },
 	]);
 	let [showBox, setShowBox] = React.useState(true);
 	let [top, setTop] = React.useState(0);
