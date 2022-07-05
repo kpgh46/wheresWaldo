@@ -11,6 +11,7 @@ let Game = (props) => {
 	let [startGame, setStartGame] = React.useState(false);
 	let [playerName, setPlayerName] = React.useState();
 	let [timer, setTime] = React.useState(0);
+	let [result, setResult] = React.useState(0);
 
 	React.useEffect(() => {
 		setGameData(props.data);
@@ -31,8 +32,9 @@ let Game = (props) => {
 			setInterval(() => {
 				setTime(timer + 1);
 			}, 1000);
+		} else {
+			return () => clearInterval();
 		}
-		setTime(timer);
 	}, [timer]);
 
 	// React.useEffect(() => {
@@ -103,6 +105,7 @@ let Game = (props) => {
 					You found {found.name}!
 				</div>
 			)}
+			<div>{timer}</div>
 
 			<div className="game__image-container">
 				{foundAllCharacters && (
