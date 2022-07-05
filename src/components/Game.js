@@ -8,7 +8,9 @@ let Game = (props) => {
 	let [gameData, setGameData] = React.useState(props.data);
 	let [found, setFound] = React.useState(props.found);
 	let [foundAllCharacters, setFoundAllCharacters] = React.useState(false);
-	let [test, setTest] = React.useState("not Clicked");
+	let [startGame, setStartGame] = React.useState(false);
+	let [playerName, setPlayerName] = React.useState();
+	let [timer, setTime] = React.useState(0);
 
 	React.useEffect(() => {
 		setGameData(props.data);
@@ -23,6 +25,21 @@ let Game = (props) => {
 			setFound(false);
 		}, 2500);
 	}, [props.found]);
+
+	React.useEffect(() => {
+		if (!foundAllCharacters) {
+			setInterval(() => {
+				setTime(timer + 1);
+			}, 1000);
+		}
+		setTime(timer);
+	}, [timer]);
+
+	// React.useEffect(() => {
+	// 	if (foundAllCharacters) {
+	// 		setTime(timer);
+	// 	}
+	// }, [foundAllCharacters]);
 
 	React.useEffect(() => {
 		let characters = [...props.data[level].characters];
@@ -78,17 +95,21 @@ let Game = (props) => {
 				index={parseInt(level)}
 				found={found}
 			/>
-			{found && (
-				<div className="found-message">You found {found.name}!</div>
-			)}
 
-			{foundAllCharacters && (
-				<div className="found-message">
-					You found all the characters!
+			{/* <div>{timer}</div> */}
+
+			{found && (
+				<div className="game__found-message">
+					You found {found.name}!
 				</div>
 			)}
 
 			<div className="game__image-container">
+				{foundAllCharacters && (
+					<div className="game__found-all-message">
+						You found all the characters in {timer} seconds!
+					</div>
+				)}
 				<img
 					// onClick={testFunction}
 					className={imageClass}
