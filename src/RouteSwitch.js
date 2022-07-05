@@ -2,11 +2,19 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import Game from "./components/Game";
+import Leaderboard from "./components/Leaderboard";
 import data from "./data";
 import Header from "./components/Header";
 
 let RouteSwitch = () => {
 	let [gameData, setGameData] = React.useState(data);
+	let [leaderboard, setLeaderboard] = React.useState([
+		{ level: 1, name: "Kevin", time: 3.4 },
+		{ level: 1, name: "Erin", time: 13.4 },
+		{ level: 2, name: "Annabelle", time: 5.0 },
+		{ level: 3, name: "Ava", time: 7.4 },
+		{ level: 3, name: "Grace", time: 10.9 },
+	]);
 	let [showBox, setShowBox] = React.useState(true);
 	let [top, setTop] = React.useState(0);
 	let [left, setLeft] = React.useState(0);
@@ -46,6 +54,19 @@ let RouteSwitch = () => {
 		setGameData(currentData);
 	};
 
+	let clickSubmitScore = (event) => {
+		let name = document.getElementById("name").value;
+		let level = parseInt(event.target.id);
+		let time = parseInt(event.target.dataset.id);
+
+		let newScore = { level: level, name: name, time: time };
+
+		setLeaderboard((previousData) => {
+			return [...previousData, newScore];
+		});
+	};
+
+	console.log(leaderboard);
 	return (
 		<div>
 			<BrowserRouter>
@@ -54,6 +75,7 @@ let RouteSwitch = () => {
 						path="/"
 						element={<Home gameboards={data} />}
 					></Route>
+
 					<Route
 						path="/gameboard/:level"
 						element={
@@ -61,8 +83,14 @@ let RouteSwitch = () => {
 								data={gameData}
 								handleTargetBoxClick={handleTargetBoxClick}
 								found={found}
+								clickSubmitScore={clickSubmitScore}
 							/>
 						}
+					></Route>
+
+					<Route
+						path="/leaderboard"
+						element={<Leaderboard data={leaderboard} />}
 					></Route>
 				</Routes>
 			</BrowserRouter>

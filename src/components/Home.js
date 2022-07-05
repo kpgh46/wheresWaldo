@@ -32,6 +32,9 @@ let Home = (props) => {
 						src={logo}
 						alt="waldo logo"
 					></img>
+					<Link to={"/leaderboard"}>
+						<button>Leaderboard</button>{" "}
+					</Link>
 				</div>
 				<div className="home__boards">{boards}</div>
 			</div>

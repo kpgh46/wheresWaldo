@@ -96,20 +96,26 @@ let Game = (props) => {
 				found={found}
 			/>
 
-			{/* <div>{timer}</div> */}
-
 			{found && (
 				<div className="game__found-message">
 					You found {found.name}!
 				</div>
 			)}
-			<div>{timer}</div>
 
 			<div className="game__image-container">
 				{foundAllCharacters && (
 					<div className="game__found-all-message">
-						You found all the characters in{" "}
+						You found all characters in{" "}
 						{foundAllCharacters && timer} seconds!
+						<input id="name" for="name" type="text"></input>
+						<button
+							name="name"
+							id={level}
+							onClick={props.clickSubmitScore}
+							data-id={timer}
+						>
+							Submit
+						</button>
 					</div>
 				)}
 				<img
