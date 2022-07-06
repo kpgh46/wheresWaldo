@@ -24,16 +24,11 @@ let Scores = (props) => {
 					<div>{item.name}</div>
 				))}
 			</div>
+
 			<div>
-				<h3>Level</h3>
+				<h3>Seconds</h3>
 				{current.map((item) => (
-					<div>{item.level}</div>
-				))}
-			</div>
-			<div>
-				<h3>Score</h3>
-				{current.map((item) => (
-					<div>{item.time}</div>
+					<div>{item.time}s</div>
 				))}
 			</div>
 		</div>

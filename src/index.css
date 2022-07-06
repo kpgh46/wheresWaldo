@@ -58,7 +58,6 @@ img{
   border: 2px solid red;
   position: relative;
   
-  
 }
 
 .game__found-message{
@@ -218,6 +217,7 @@ background-color: green;
   width: 50%;
   font-size: large;
   justify-content: space-evenly;
+  cursor: pointer;
   
   
 }
@@ -234,4 +234,8 @@ background-color: green;
   align-items: center;
   border: 1px solid black;
   justify-content: space-evenly;
+}
+
+.test{
+  color:red
 }
