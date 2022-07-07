@@ -96,11 +96,11 @@ let Game = (props) => {
 				found={found}
 			/>
 
-			{found && (
+			{/* {found && (
 				<div className="game__found-message">
 					You found {found.name}!
 				</div>
-			)}
+			)} */}
 
 			<div className="game__image-container">
 				{foundAllCharacters && (

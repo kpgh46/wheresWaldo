@@ -30,7 +30,15 @@ let Header = (props) => {
 				></img>
 				<h1 className="header-text">Where's Waldo?</h1>
 			</div>
-			<div className="header-right">{images}</div>
+			<div className="header-right">
+				{images}
+				{props.found && (
+					<div className="game__found-message">
+						You found {props.found.name}!
+					</div>
+				)}
+			</div>
+
 			<Link to="/">
 				<button className="header__button">Home</button>
 			</Link>

@@ -29,6 +29,8 @@
 .header-right{
   display: flex;
   width: 56%;
+  align-items: center;
+
   /* border: 1px solid; */
   
 }
@@ -62,20 +64,14 @@ img{
 
 .game__found-message{
   color:#3B82F6;
-  
   height: 21px;
-  width: 180px;
+  width: 155px;
   font-size: large;
   font-weight: bolder;
+  text-align: center;
   border: 1px solid #3B82F6;
   border-radius: 5px;
-  position: absolute;
-  top: 16.25%;
-  z-index: 1;
-  text-align: center;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
+
 }
 
 .game__found-all-message{
