@@ -78,7 +78,7 @@ img{
   background-color:#3B82F6;
   color: white;
   padding:5px;
-  height: 21px;
+  height: auto;
   width: auto;
   font-size: large;
   border: 1px solid #3B82F6;
@@ -90,6 +90,11 @@ img{
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
+  
+}
+
+.remove{
+  display: none;
 }
 
 

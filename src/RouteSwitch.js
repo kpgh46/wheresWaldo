@@ -5,6 +5,7 @@ import Game from "./components/Game";
 import Leaderboard from "./components/Leaderboard";
 import data from "./data";
 import Header from "./components/Header";
+import { Link } from "react-router-dom";
 
 let RouteSwitch = () => {
 	let [gameData, setGameData] = React.useState(data);
@@ -66,6 +67,11 @@ let RouteSwitch = () => {
 		setLeaderboard((previousData) => {
 			return [...previousData, newScore];
 		});
+
+		event.target.parentElement.innerHTML =
+			"Thank you for your submission! Please click Home button";
+
+		setGameData(data);
 	};
 
 	console.log(leaderboard, "route");

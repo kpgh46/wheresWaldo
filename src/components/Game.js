@@ -96,17 +96,12 @@ let Game = (props) => {
 				found={found}
 			/>
 
-			{/* {found && (
-				<div className="game__found-message">
-					You found {found.name}!
-				</div>
-			)} */}
-
 			<div className="game__image-container">
 				{foundAllCharacters && (
 					<div className="game__found-all-message">
 						You found all characters in{" "}
 						{foundAllCharacters && timer} seconds!
+						<div>Name for leaderboard:</div>
 						<input id="name" for="name" type="text"></input>
 						<button
 							name="name"
