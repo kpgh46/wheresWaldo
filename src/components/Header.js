@@ -23,11 +23,13 @@ let Header = (props) => {
 	return (
 		<div className="header">
 			<div className="header-left">
-				<img
-					className="stamp"
-					src={stamp}
-					alt="wheres waldo stamp"
-				></img>
+				<Link to="/">
+					<img
+						className="stamp"
+						src={stamp}
+						alt="wheres waldo stamp"
+					></img>
+				</Link>
 				<h1 className="header-text">Where's Waldo?</h1>
 			</div>
 			<div className="header-right">
