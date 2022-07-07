@@ -4,6 +4,7 @@ import TargetingBox from "./TargetingBox";
 import { useParams } from "react-router-dom";
 
 let Game = (props) => {
+	console.log(props.data);
 	let { level } = useParams();
 	let [gameData, setGameData] = React.useState(props.data);
 	let [found, setFound] = React.useState(props.found);

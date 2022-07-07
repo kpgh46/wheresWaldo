@@ -68,10 +68,10 @@ let RouteSwitch = () => {
 			return [...previousData, newScore];
 		});
 
-		event.target.parentElement.innerHTML =
-			"Thank you for your submission! Please click Home button";
+		event.target.parentElement.innerHTML = `Thank you for your submission! Please click Home button`;
 
 		setGameData(data);
+		setFound();
 	};
 
 	console.log(leaderboard, "route");

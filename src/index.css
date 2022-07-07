@@ -114,6 +114,17 @@ img{
   width: 50px;
 }
 
+.home__board-level{
+  background-color: #3B82F6;
+  color:white;
+  height: auto;
+  width: 60px;
+  text-align: center;
+  border-radius: 5px;
+  margin-right: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+}
+
 .home__board-images{
   height: 350px;
   width: 590px;
@@ -136,6 +147,7 @@ img{
 
 .home__board-description{
   display: flex;
+  
   
   height:20px;
   /* border: 1px solid; */

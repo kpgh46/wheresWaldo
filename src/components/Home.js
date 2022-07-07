@@ -16,7 +16,7 @@ let Home = (props) => {
 					></img>
 				</Link>
 				<div className="home__board-description">
-					<div>{board.level}</div>
+					<div className="home__board-level">{board.level}</div>
 				</div>
 			</div>
 		);
