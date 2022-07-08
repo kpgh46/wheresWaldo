@@ -35,7 +35,7 @@ let RouteSwitch = () => {
 		getLeaderBoard();
 	}, []);
 
-	// console.log(leaderboard, "route");
+	console.log(leaderboard, "route");
 
 	//
 	//
