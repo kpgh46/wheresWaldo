@@ -8,18 +8,27 @@ import Header from "./components/Header";
 import { Link } from "react-router-dom";
 import { db } from "./firebase-config";
 import { collection, getDocs, addDoc } from "firebase/firestore";
+import { async } from "@firebase/util";
 
 let RouteSwitch = () => {
 	let [gameData, setGameData] = React.useState(data);
 	let [leaderboard, setLeaderboard] = React.useState([]);
+	let [submitScore, setSubmitScore] = React.useState(false);
 	let [showBox, setShowBox] = React.useState(true);
-
+	let [newScore, setNewScore] = React.useState();
 	let [top, setTop] = React.useState(0);
 	let [left, setLeft] = React.useState(0);
 	let [found, setFound] = React.useState("");
 	let [users, setUsers] = React.useState([]);
 	let usersReference = collection(db, "users");
 	let leaderboardRef = collection(db, "leaderboard"); //reference to firebase database
+
+	React.useEffect(() => {
+		let test = async () => {
+			await addDoc(leaderboardRef, newScore);
+		};
+		test();
+	}, [leaderboardRef, newScore]);
 
 	React.useEffect(() => {
 		let getLeaderBoard = async () => {
@@ -35,7 +44,7 @@ let RouteSwitch = () => {
 		};
 
 		getLeaderBoard();
-	}, []);
+	}, [submitScore]);
 
 	let handleTargetBoxClick = (event) => {
 		let el = event.target.id;
@@ -71,14 +80,14 @@ let RouteSwitch = () => {
 		setGameData(currentData);
 	};
 
-	let clickSubmitScore = async (event) => {
+	let clickSubmitScore = (event) => {
 		let name = document.getElementById("name").value;
 		let level = parseInt(event.target.id);
 		let time = parseInt(event.target.dataset.id);
+		setSubmitScore(true);
+		let currentScore = { level: level + 1, name: name, time: time };
 
-		let newScore = { level: level + 1, name: name, time: time };
-
-		await addDoc(leaderboardRef, newScore);
+		setNewScore(currentScore);
 
 		// setLeaderboard((previousData) => {
 		// 	return [...previousData, newScore];
@@ -89,6 +98,8 @@ let RouteSwitch = () => {
 		setGameData(data);
 		setFound();
 	};
+
+	console.log(newScore);
 
 	return (
 		<div>
