@@ -11,39 +11,60 @@ import { collection, CollectionReference, getDocs } from "firebase/firestore";
 
 let RouteSwitch = () => {
 	let [gameData, setGameData] = React.useState(data);
-	let [leaderboard, setLeaderboard] = React.useState([
-		{ level: 1, name: "Kevin", time: 3 },
-		{ level: 1, name: "Erin", time: 13 },
-		{ level: 2, name: "Annabelle", time: 5 },
-		{ level: 3, name: "Ava", time: 7 },
-		{ level: 3, name: "Grace", time: 10 },
-		{ level: 4, name: "Faven", time: 11 },
-		{ level: 4, name: "Layla", time: 12 },
-	]);
+	let [leaderboard, setLeaderboard] = React.useState([]);
 	let [showBox, setShowBox] = React.useState(true);
 	let [top, setTop] = React.useState(0);
 	let [left, setLeft] = React.useState(0);
 	let [found, setFound] = React.useState("");
 	let [users, setUsers] = React.useState([]);
 	let usersReference = collection(db, "users");
+	let leaderboardRef = collection(db, "leaderboard");
 
 	React.useEffect(() => {
-		let getUsers = async () => {
-			let d = await getDocs(usersReference);
-			setUsers(
+		let getLeaderBoard = async () => {
+			let d = await getDocs(leaderboardRef);
+			setLeaderboard(
 				d.docs.map((doc) => {
 					return {
 						...doc.data(),
-						id: doc.id,
 					};
 				})
 			);
 		};
 
-		getUsers();
+		getLeaderBoard();
 	}, []);
 
-	console.log(users);
+	// console.log(leaderboard, "route");
+
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+
+	// React.useEffect(() => {
+	// 	let getUsers = async () => {
+	// 		let d = await getDocs(usersReference);
+	// 		setUsers(
+	// 			d.docs.map((doc) => {
+	// 				return {
+	// 					...doc.data(),
+	// 					id: doc.id,
+	// 				};
+	// 			})
+	// 		);
+	// 	};
+
+	// 	getUsers();
+	// }, []);
 
 	let handleTargetBoxClick = (event) => {
 		let el = event.target.id;

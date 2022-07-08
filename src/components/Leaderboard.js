@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 let Leaderboard = (props) => {
 	let data = props.data;
 	let [currentLevel, setCurrentLevel] = React.useState(1);
+	console.log(data, "leaderboard");
 
 	let clickLevel = (event) => {
 		let el = parseInt(event.target.id);
