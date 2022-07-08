@@ -6,6 +6,8 @@ import Leaderboard from "./components/Leaderboard";
 import data from "./data";
 import Header from "./components/Header";
 import { Link } from "react-router-dom";
+import { db } from "./firebase-config";
+import { collection, CollectionReference, getDocs } from "firebase/firestore";
 
 let RouteSwitch = () => {
 	let [gameData, setGameData] = React.useState(data);
@@ -22,6 +24,26 @@ let RouteSwitch = () => {
 	let [top, setTop] = React.useState(0);
 	let [left, setLeft] = React.useState(0);
 	let [found, setFound] = React.useState("");
+	let [users, setUsers] = React.useState([]);
+	let usersReference = collection(db, "users");
+
+	React.useEffect(() => {
+		let getUsers = async () => {
+			let d = await getDocs(usersReference);
+			setUsers(
+				d.docs.map((doc) => {
+					return {
+						...doc.data(),
+						id: doc.id,
+					};
+				})
+			);
+		};
+
+		getUsers();
+	}, []);
+
+	console.log(users);
 
 	let handleTargetBoxClick = (event) => {
 		let el = event.target.id;
@@ -74,7 +96,6 @@ let RouteSwitch = () => {
 		setFound();
 	};
 
-	console.log(leaderboard, "route");
 	return (
 		<div>
 			<BrowserRouter>
