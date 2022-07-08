@@ -7,26 +7,28 @@ import data from "./data";
 import Header from "./components/Header";
 import { Link } from "react-router-dom";
 import { db } from "./firebase-config";
-import { collection, CollectionReference, getDocs } from "firebase/firestore";
+import { collection, getDocs, addDoc } from "firebase/firestore";
 
 let RouteSwitch = () => {
 	let [gameData, setGameData] = React.useState(data);
 	let [leaderboard, setLeaderboard] = React.useState([]);
 	let [showBox, setShowBox] = React.useState(true);
+
 	let [top, setTop] = React.useState(0);
 	let [left, setLeft] = React.useState(0);
 	let [found, setFound] = React.useState("");
 	let [users, setUsers] = React.useState([]);
 	let usersReference = collection(db, "users");
-	let leaderboardRef = collection(db, "leaderboard");
+	let leaderboardRef = collection(db, "leaderboard"); //reference to firebase database
 
 	React.useEffect(() => {
 		let getLeaderBoard = async () => {
-			let d = await getDocs(leaderboardRef);
+			let d = await getDocs(leaderboardRef); //pull the docs from database
 			setLeaderboard(
 				d.docs.map((doc) => {
+					//map over data from 'await' variable
 					return {
-						...doc.data(),
+						...doc.data(), //object of all the data in the database
 					};
 				})
 			);
@@ -34,37 +36,6 @@ let RouteSwitch = () => {
 
 		getLeaderBoard();
 	}, []);
-
-	console.log(leaderboard, "route");
-
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-
-	// React.useEffect(() => {
-	// 	let getUsers = async () => {
-	// 		let d = await getDocs(usersReference);
-	// 		setUsers(
-	// 			d.docs.map((doc) => {
-	// 				return {
-	// 					...doc.data(),
-	// 					id: doc.id,
-	// 				};
-	// 			})
-	// 		);
-	// 	};
-
-	// 	getUsers();
-	// }, []);
 
 	let handleTargetBoxClick = (event) => {
 		let el = event.target.id;
@@ -100,16 +71,18 @@ let RouteSwitch = () => {
 		setGameData(currentData);
 	};
 
-	let clickSubmitScore = (event) => {
+	let clickSubmitScore = async (event) => {
 		let name = document.getElementById("name").value;
 		let level = parseInt(event.target.id);
 		let time = parseInt(event.target.dataset.id);
 
 		let newScore = { level: level + 1, name: name, time: time };
 
-		setLeaderboard((previousData) => {
-			return [...previousData, newScore];
-		});
+		await addDoc(leaderboardRef, newScore);
+
+		// setLeaderboard((previousData) => {
+		// 	return [...previousData, newScore];
+		// });
 
 		event.target.parentElement.innerHTML = `Thank you for your submission! Please click Home button`;
 
