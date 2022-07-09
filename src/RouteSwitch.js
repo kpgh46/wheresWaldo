@@ -24,10 +24,10 @@ let RouteSwitch = () => {
 	let leaderboardRef = collection(db, "leaderboard"); //reference to firebase database
 
 	React.useEffect(() => {
-		let test = async () => {
+		let addToDataBase = async () => {
 			await addDoc(leaderboardRef, newScore);
 		};
-		test();
+		addToDataBase();
 	}, [leaderboardRef, newScore]);
 
 	React.useEffect(() => {
@@ -89,17 +89,11 @@ let RouteSwitch = () => {
 
 		setNewScore(currentScore);
 
-		// setLeaderboard((previousData) => {
-		// 	return [...previousData, newScore];
-		// });
-
 		event.target.parentElement.innerHTML = `Thank you for your submission! Please click Home button`;
 
 		setGameData(data);
 		setFound();
 	};
-
-	console.log(newScore);
 
 	return (
 		<div>
