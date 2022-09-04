@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/wheres_waldo/static/css/main.4ef18bd0.css",
+    "main.js": "/wheres_waldo/static/js/main.ca61d072.js",
+    "static/js/787.4ce2c4d5.chunk.js": "/wheres_waldo/static/js/787.4ce2c4d5.chunk.js",
+    "static/media/level-3.png": "/wheres_waldo/static/media/level-3.e40f32a321b79f152081.png",
+    "static/media/level-4.png": "/wheres_waldo/static/media/level-4.69a90d70d834b1d8df13.png",
+    "static/media/game_basic.png": "/wheres_waldo/static/media/game_basic.c61afe248df2f4146a03.png",
+    "static/media/wally.png": "/wheres_waldo/static/media/wally.ebbb5fa3b563e2e5ede2.png",
+    "static/media/level-2.jpg": "/wheres_waldo/static/media/level-2.df92acace3987b9e1eee.jpg",
+    "static/media/stampv2.png": "/wheres_waldo/static/media/stampv2.60510a8abfbabaaadfa4.png",
+    "static/media/level-1.jpg": "/wheres_waldo/static/media/level-1.8b871ac1382de68197ba.jpg",
+    "static/media/logo.png": "/wheres_waldo/static/media/logo.c1526a6a38c0fd1565c5.png",
+    "static/media/wizard.png": "/wheres_waldo/static/media/wizard.2453d98d9c246f9ef6ff.png",
+    "static/media/waldo.jpeg": "/wheres_waldo/static/media/waldo.6def7707e7d63d43f72d.jpeg",
+    "index.html": "/wheres_waldo/index.html",
+    "main.4ef18bd0.css.map": "/wheres_waldo/static/css/main.4ef18bd0.css.map",
+    "main.ca61d072.js.map": "/wheres_waldo/static/js/main.ca61d072.js.map",
+    "787.4ce2c4d5.chunk.js.map": "/wheres_waldo/static/js/787.4ce2c4d5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4ef18bd0.css",
+    "static/js/main.ca61d072.js"
+  ]
+}
