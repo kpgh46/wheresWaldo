@@ -1,25 +1,27 @@
-# Getting Started with Create React App
+# Where's Waldo (Photo Tagging App)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is the classic "Where's Waldo" game built with React and Firebase
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+Where's Waldo is a game where the goal is to find Waldo (along with other characters) as fast as possible. Characters are hidden within a 'busy' photo. Once the user clicks on all characters, the level is complete. If found fast enough, the user may enter their name for the leaderboard where fastest times are tracked.
 
-### `npm start`
+## Functionality
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The user can choose from four different levels, each with increasing difficulty. Once a level is selected, the game starts. Each level has a different set of characters which are shown above the game board. When a character is clicked on, a message will appear confirming which character was found and the character image will turn grey. Once all characters are found, a prompt will appear confirming all characters were found and the amount of time it took. A global leaderboard can be accessed from the home screen
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+-   4 unique boards to play
+-   Time recorder during gameplay
+-   Tracking and confirmation to when a character is selected
+-   Global leaderboard save on FireBase
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies
 
-### `npm run build`
+-   React.js
+-   Firebase
+-   CSS3
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
