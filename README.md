@@ -2,7 +2,7 @@
 
 This project is the classic "Where's Waldo" game built with React and Firebase
 
-[preview](https://kpgh46.github.io/wheresWaldo/)
+[Preview](https://kpgh46.github.io/wheresWaldo/)
 
 ## Overview
 
