@@ -1,7 +1,10 @@
 import React from "react";
 
 let Scores = (props) => {
-	let current = props.data.filter((item) => item.level === props.level);
+	let allData = props.data.filter((item) => item.level === props.level);
+	let current = allData.sort(
+		(a, b) => parseFloat(a.time) - parseFloat(b.time)
+	);
 
 	let score = current.map((item) => {
 		return (
